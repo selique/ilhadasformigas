@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161789842-1"></script>
+    <!-- Google Tag Manager -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-
-      gtag("config", "UA-161789842-1");
+      (function(w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-TNBD6GN");
     </script>
+    <!-- End Google Tag Manager -->
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -411,6 +414,16 @@
     </style>
   </head>
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-TNBD6GN"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <div class="grid">
       <div class="collumn-grid"><img class="bug" src="./img/up-bug.png" alt="ilha das formigas" /></div>
       <div class="collumn-grid">
@@ -419,7 +432,11 @@
           <ul>
             <li>
               <div>
-                <a href="https://drive.google.com/open?id=1NpYlDlHc4jzpMD6UT-R6npBgevsSFVkF">
+                <a
+                  class="download-fasciculo"
+                  href="https://drive.google.com/open?id=1NpYlDlHc4jzpMD6UT-R6npBgevsSFVkF"
+                  title="O MUDO FOFOQUEIRO"
+                >
                   <h2>
                     <div class="date">24/MAR/2020</div>
                     <div class="sub-title">Fascículo - 1</div>
@@ -432,7 +449,9 @@
             <li>
               <div>
                 <a
+                  class="download-fasciculo"
                   href="#ONOPOETOPEIA"
+                  title="ONOPOETOPÉIA"
                   onClick="alert('Esse Fascículo estará disponível a partir do dia 31/03/2020, se preferir cadastre-se e receba no seu email!')"
                 >
                   <h2>
