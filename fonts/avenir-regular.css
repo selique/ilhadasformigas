@@ -1,0 +1,13 @@
+/* font converted using font-converter.net. thank you! */
+@font-face {
+  font-family: "avenir-regular";
+  src: url("./fonts/avenir-next-lt-pro.eot"); /* IE9 Compat Modes */
+  src: url("./fonts/avenir-next-lt-pro.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("./fonts/avenir-next-lt-pro.otf") format("opentype"), /* Open Type Font */
+    url("./fonts/avenir-next-lt-pro.svg") format("svg"), /* Legacy iOS */
+    url("./fonts/avenir-next-lt-pro.ttf") format("truetype"), /* Safari, Android, iOS */
+    url("./fonts/avenir-next-lt-pro.woff") format("woff"), /* Modern Browsers */
+    url("./fonts/avenir-next-lt-pro.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}

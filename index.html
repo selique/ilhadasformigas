@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ilhas das Formigas</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        border: 0;
+        box-sizing: border-box;
+      }
+      @import url("./assets/normalize.css");
+      @font-face {
+        font-family: "fabianestem-normal";
+        src: url("./fonts/FABIN.eot"); /* IE9 Compat Modes */
+        src: url("./fonts/FABIN.eot?#iefix") format("embedded-opentype"),
+          /* IE6-IE8 */ url("./fonts/FABIN.otf") format("opentype"), /* Open Type Font */ url("./fonts/FABIN.svg") format("svg"),
+          /* Legacy iOS */ url("./fonts/FABIN.ttf") format("truetype"),
+          /* Safari, Android, iOS */ url("./fonts/FABIN.woff") format("woff"),
+          /* Modern Browsers */ url("./fonts/FABIN.woff2") format("woff2"); /* Modern Browsers */
+        font-weight: normal;
+        font-style: normal;
+      }
+      /* font converted using font-converter.net. thank you! */
+      @font-face {
+        font-family: "avenir-regular";
+        src: url("./fonts/avenir-next-lt-pro.eot"); /* IE9 Compat Modes */
+        src: url("./fonts/avenir-next-lt-pro.eot?#iefix") format("embedded-opentype"),
+          /* IE6-IE8 */ url("./fonts/avenir-next-lt-pro.otf") format("opentype"),
+          /* Open Type Font */ url("./fonts/avenir-next-lt-pro.svg") format("svg"),
+          /* Legacy iOS */ url("./fonts/avenir-next-lt-pro.ttf") format("truetype"),
+          /* Safari, Android, iOS */ url("./fonts/avenir-next-lt-pro.woff") format("woff"),
+          /* Modern Browsers */ url("./fonts/avenir-next-lt-pro.woff2") format("woff2"); /* Modern Browsers */
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      body {
+        background: url("./img/bg-pattern.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center center;
+        padding-bottom: 100px;
+      }
+
+      .grid {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto;
+        overflow-x: hidden;
+        overflow-y: hidden;
+      }
+
+      .collumn-grid:nth-child(1) {
+        width: 30vw;
+        justify-self: start;
+      }
+
+      .collumn-grid:nth-child(2) {
+        width: 40vw;
+        justify-self: center;
+      }
+
+      .collumn-grid:nth-child(3) {
+        width: 30vw;
+        justify-self: end;
+      }
+
+      h1 {
+        font-size: 8rem;
+        font-family: "fabianestem-normal";
+        color: rgb(153, 19, 19);
+        line-height: 1.162;
+        margin-top: 20vh;
+      }
+
+      h2 {
+        font-family: "avenir-regular";
+        color: rgb(255, 255, 255);
+        text-transform: uppercase;
+        line-height: 1.162;
+        display: block;
+      }
+      h2 > div {
+        background-color: black;
+        margin: 10px;
+        padding: 10px 15px;
+        width: fit-content;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      a:hover > h2 > div {
+        background-color: white;
+        color: rgb(153, 19, 19);
+        font-weight: bold;
+      }
+
+      a:focus > h2 {
+        background-color: black;
+        outline: solid 10px rgb(153, 19, 19);
+      }
+      a:focus > h2 > div {
+        background-color: white;
+        color: rgb(153, 19, 19);
+      }
+
+      ul {
+        list-style-type: none;
+      }
+
+      ul > li {
+        margin: 50px 10px 100px 10px;
+      }
+
+      /* Extra small devices (phones, 600px and down) */
+      @media only screen and (max-width: 600px) {
+        .collumn-grid:nth-child(1) {
+          width: 10vw;
+          justify-self: start;
+        }
+
+        .collumn-grid:nth-child(2) {
+          width: 80vw;
+          justify-self: center;
+        }
+
+        .collumn-grid:nth-child(3) {
+          width: 10vw;
+          justify-self: end;
+        }
+
+        .collumn-grid:nth-child(1) > .bug {
+          height: 50vh;
+          opacity: 0;
+        }
+
+        .collumn-grid:nth-child(3) > .bug {
+          height: 30vh;
+          position: relative;
+          right: 30vw;
+          top: 20vh;
+        }
+
+        h1 {
+          font-size: 3rem;
+          font-family: "fabianestem-normal";
+          color: rgb(153, 19, 19);
+          line-height: 1.162;
+          margin-top: 20vh;
+        }
+
+        h2 {
+          font-size: 1rem;
+          font-family: "avenir-regular";
+          color: rgb(255, 255, 255);
+          text-transform: uppercase;
+          line-height: 1.162;
+          display: block;
+        }
+        iframe {
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 400px;
+          height: 700px;
+        }
+      }
+      @media only screen and (min-width: 600px) and (max-width: 768px) {
+        .collumn-grid:nth-child(1) {
+          width: 10vw;
+          justify-self: start;
+        }
+
+        .collumn-grid:nth-child(2) {
+          width: 80vw;
+          justify-self: center;
+        }
+
+        .collumn-grid:nth-child(3) {
+          width: 10vw;
+          justify-self: end;
+        }
+
+        .collumn-grid:nth-child(1) > .bug {
+          height: 50vh;
+          opacity: 0.4;
+        }
+
+        .collumn-grid:nth-child(3) > .bug {
+          height: 30vh;
+          position: relative;
+          right: 30vw;
+          top: 20vh;
+        }
+
+        h1 {
+          font-size: 3rem;
+          font-family: "fabianestem-normal";
+          color: rgb(153, 19, 19);
+          line-height: 1.162;
+          margin-top: 20vh;
+        }
+
+        h2 {
+          font-size: 1rem;
+          font-family: "avenir-regular";
+          color: rgb(255, 255, 255);
+          text-transform: uppercase;
+          line-height: 1.162;
+          display: block;
+        }
+        iframe {
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 600px;
+          height: 700px;
+        }
+      }
+
+      /* Medium devices (landscape tablets, 768px and up) */
+      @media only screen and (min-width: 768px) {
+        .collumn-grid:nth-child(1) {
+          width: 30vw;
+          justify-self: start;
+        }
+
+        .collumn-grid:nth-child(2) {
+          width: 40vw;
+          justify-self: center;
+        }
+
+        .collumn-grid:nth-child(3) {
+          width: 30vw;
+          justify-self: end;
+        }
+
+        .collumn-grid:nth-child(1) > .bug {
+          height: 80vh;
+        }
+
+        .collumn-grid:nth-child(3) > .bug {
+          height: 80vh;
+          position: relative;
+          top: 30vh;
+        }
+
+        h1 {
+          font-size: 3rem;
+          font-family: "fabianestem-normal";
+          color: rgb(153, 19, 19);
+          line-height: 1.162;
+          margin-top: 20vh;
+        }
+
+        h2 {
+          font-size: 1rem;
+          font-family: "avenir-regular";
+          color: rgb(255, 255, 255);
+          text-transform: uppercase;
+          line-height: 1.162;
+          display: block;
+        }
+        iframe {
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 400px;
+          height: 700px;
+        }
+      }
+
+      /* Large devices (laptops/desktops, 992px and up) */
+      @media only screen and (min-width: 992px) {
+        .collumn-grid:nth-child(1) {
+          width: 30vw;
+          justify-self: start;
+        }
+
+        .collumn-grid:nth-child(2) {
+          width: 40vw;
+          justify-self: center;
+        }
+
+        .collumn-grid:nth-child(3) {
+          width: 30vw;
+          justify-self: end;
+        }
+
+        .collumn-grid:nth-child(1) > .bug {
+          height: 80vh;
+        }
+
+        .collumn-grid:nth-child(3) > .bug {
+          height: 80vh;
+          position: relative;
+          top: 30vh;
+        }
+
+        h1 {
+          font-size: 3rem;
+          font-family: "fabianestem-normal";
+          color: rgb(153, 19, 19);
+          line-height: 1.162;
+          margin-top: 20vh;
+        }
+
+        h2 {
+          font-size: 1rem;
+          font-family: "avenir-regular";
+          color: rgb(255, 255, 255);
+          text-transform: uppercase;
+          line-height: 1.162;
+          display: block;
+        }
+        iframe {
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 400px;
+          height: 700px;
+        }
+      }
+
+      /* Extra large devices (large laptops and desktops, 1200px and up) */
+      @media only screen and (min-width: 1200px) {
+        .collumn-grid:nth-child(1) {
+          width: 25vw;
+          justify-self: start;
+        }
+
+        .collumn-grid:nth-child(2) {
+          width: 50vw;
+          justify-self: center;
+        }
+
+        .collumn-grid:nth-child(3) {
+          width: 25vw;
+          justify-self: end;
+        }
+
+        .collumn-grid:nth-child(2) > .container {
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        .collumn-grid:nth-child(1) > .bug {
+          height: 80vh;
+        }
+
+        .collumn-grid:nth-child(3) > .bug {
+          height: 80vh;
+          position: relative;
+          top: 30vh;
+        }
+
+        h1 {
+          font-size: 3rem;
+          font-family: "fabianestem-normal";
+          color: #991313;
+          line-height: 1.162;
+          margin-top: 20vh;
+        }
+
+        h2 {
+          font-size: 1rem;
+          font-family: "avenir-regular";
+          color: rgb(255, 255, 255);
+          text-transform: uppercase;
+          line-height: 1.162;
+          display: block;
+        }
+        iframe {
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 400px;
+          height: 700px;
+        }
+      }
+      footer {
+        position: fixed;
+        padding: 10px;
+        background-color: black;
+        font-family: "avenir-regular";
+        color: rgb(255, 255, 255);
+        bottom: 0%;
+      }
+      footer:hover {
+        color: rgb(153, 19, 19);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid">
+      <div class="collumn-grid"><img class="bug" src="./img/up-bug.png" alt="ilha das formigas" /></div>
+      <div class="collumn-grid">
+        <div class="container">
+          <h1>ilha<br />das<br />formigas</h1>
+          <ul>
+            <li>
+              <div>
+                <a href="https://drive.google.com/open?id=1NpYlDlHc4jzpMD6UT-R6npBgevsSFVkF">
+                  <h2>
+                    <div class="date">24/MAR/2020</div>
+                    <div class="sub-title">Fascículo - 1</div>
+                    <div class="title">O MUDO FOFOQUEIRO</div>
+                    <div class="link-download">Clique aqui para baixar</div>
+                  </h2>
+                </a>
+              </div>
+            </li>
+            <li>
+              <div>
+                <a
+                  href="#ONOPOETOPEIA"
+                  onClick="alert('Esse Fascículo estará disponível a partir do dia 31/03/2020, se preferir cadastre-se e receba no seu email!')"
+                >
+                  <h2>
+                    <div class="date">31/MAR/2020</div>
+                    <div class="sub-title">Fascículo - 2</div>
+                    <div class="title">ONOPOETOPÉIA</div>
+                    <div class="link-download">Clique aqui para baixar</div>
+                  </h2>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="collumn-grid"><img class="bug" src="./img/down-bug.png" alt="ilha das formigas" /></div>
+    </div>
+    <iframe
+      src="https://docs.google.com/forms/d/e/1FAIpQLSdbiDWZZt-ThpFzKcpJdgupWIHmLHBr517qlA6vYjODDJkr2g/viewform?embedded=true"
+      frameborder="0"
+      marginheight="0"
+      marginwidth="0"
+      >Carregando…</iframe
+    >
+    <footer>
+      <p>Todo o conteúdo desse ensaio é de autoria de Ariel Gricio. Pode espalhar, mas cite a fonte, por favor! ;)</p>
+    </footer>
+  </body>
+</html>
