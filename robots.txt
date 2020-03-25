@@ -1,0 +1,3 @@
+User-Agent: *
+Allow: /
+Sitemap: https://ilhadasformigas.xyz//sitemap_index.xml
